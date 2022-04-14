@@ -14,7 +14,10 @@
 1. Follow the steps provided by instructor
 
 ## Task 2: Create and use Volume `webvolume`.
-
+0. Login as root
+```she
+$ sudo su -
+```
 1. Create volume `webvolume`.
 ```she
 $ docker volume create webvolume
@@ -75,13 +78,13 @@ $ mkdir ~/bindfolder
 $ cd bindfolder
 $ echo "<html></h1>Bind folder into container :)</h1></html>" > ~/bindfolder/index.html
 $ pwd
-/home/ssm-user/bindfolder
+/root/bindfolder
 ```
 
 2. Bind folder instead of Volume
 $ docker run -d -p 8080:80 \
   --name ngnixvolume \
-  --mount type=bind,source=/home/ssm-user/bindfolder,target=/usr/share/nginx/html \
+  --mount type=bind,source=/root/bindfolder,target=/usr/share/nginx/html \
   nginx:latest
 
 3. Check your IP, and open in the Web Browser to validate if application is available eq: http://176.34.207.206:8080/
