@@ -87,7 +87,7 @@ $ docker run -d -p 8080:80 \
   --name ngnixvolume \
   --mount type=bind,source=/root/bindfolder,target=/usr/share/nginx/html \
   nginx:latest
-
+```
 3. Check your IP, and open in the Web Browser to validate if application is available eq: http://176.34.207.206:8080/
 ```she
 $ curl ifconfig.me
