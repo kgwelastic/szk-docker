@@ -152,7 +152,7 @@ You should see the MySQL demon (`mysqld`) is running. Note that the PID shown he
 $ docker container exec mydb ps -ef
 OCI runtime exec failed: exec failed: container_linux.go:380: starting container process caused: exec: "ps": executable file not found in $PATH: unknown
 ```
-You recived error because ps proces is not install in the container, adding ps tools via procps
+You received error because ps proces is not install in the container, now you will add pstools via procps debian package
 
 ```she
 $ docker container exec mydb /usr/bin/apt-get -y update
