@@ -143,11 +143,24 @@ Let's look at the running processes inside the container.
 ```she
 $ docker container top mydb
 PID USERTIMECOMMAND
-2876999 0:00mysqld
+2876999 0:00 mysqld
 ```
     
 You should see the MySQL demon (`mysqld`) is running. Note that the PID shown here is the PID for this process on your docker host. To see the same `mysqld` process running as the main process of the container (PID 1) try:
 	
+```she
+$ docker container exec mydb ps -ef
+OCI runtime exec failed: exec failed: container_linux.go:380: starting container process caused: exec: "ps": executable file not found in $PATH: unknown
+```
+You recived error because ps proces is not install in the container, adding ps tools via procps
+
+```she
+$ docker container exec mydb /usr/bin/apt-get -y update
+$ docker container exec mydb /usr/bin/apt-get -y install procps
+```
+
+Now you should see that process is running
+
 ```she
 $ docker container exec mydb ps -ef
 UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
