@@ -136,17 +136,17 @@ $ docker container logs mydb
 2022-04-13T18:57:31.960954Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.28'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
 ```
 
-    This shows the logs from your Docker container.
+This shows the logs from your Docker container.
 
-    Let's look at the running processes inside the container.
+Let's look at the running processes inside the container.
 
-    ```she
-    $ docker container top mydb
-    PID USERTIMECOMMAND
-    2876999 0:00mysqld
-    ```
+```she
+$ docker container top mydb
+PID USERTIMECOMMAND
+2876999 0:00mysqld
+```
     
-	You should see the MySQL demon (`mysqld`) is running. Note that the PID shown here is the PID for this process on your docker host. To see the same `mysqld` process running as the main process of the container (PID 1) try:
+You should see the MySQL demon (`mysqld`) is running. Note that the PID shown here is the PID for this process on your docker host. To see the same `mysqld` process running as the main process of the container (PID 1) try:
 	
 ```she
 $ docker container exec mydb ps -ef
