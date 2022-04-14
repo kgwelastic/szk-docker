@@ -75,13 +75,13 @@ $ mkdir ~/bindfolder
 $ cd bindfolder
 $ echo "<html></h1>Bind folder into container :)</h1></html>" > ~/bindfolder/index.html
 $ pwd
-/home/ec2-user/bindfolder
+/home/ssm-user/bindfolder
 ```
 
 2. Bind folder instead of Volume
 $ docker run -d -p 8080:80 \
   --name ngnixvolume \
-  --mount type=bind,source=/home/ec2-user/bindfolder,target=/usr/share/nginx/html \
+  --mount type=bind,source=/home/ssm-user/bindfolder,target=/usr/share/nginx/html \
   nginx:latest
 
 3. Check your IP, and open in the Web Browser to validate if application is available eq: http://176.34.207.206:8080/
