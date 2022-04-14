@@ -17,12 +17,13 @@ In this lab we'll take a look at some build Docker commands.
 
 1. Install git tools.
 ```she
-sudo yum install git -y
+$ cd ~
+$ sudo yum install git -y
 ```
 
 2. Clone the example dotnet repository
 ```she
-git clone https://github.com/dotnet/dotnet-docker
+$ git clone https://github.com/dotnet/dotnet-docker
 Cloning into 'dotnet-docker'...
 <output truncated>
 Resolving deltas: 100% (29030/29030), done.
@@ -44,7 +45,7 @@ Successfully tagged aspnetapp:latest
 ```
 
 ```she
-cat Dockerfile
+$ cat Dockerfile
 # https://hub.docker.com/_/microsoft-dotnet
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /source
@@ -67,12 +68,12 @@ ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 ```
 
 ```she
-docker run --detach -p 8080:80 --name aspnetcore_sample2 aspnetapp
+$ docker run --detach -p 8080:80 --name aspnetcore_sample2 aspnetapp
 5529f4dacc78091bfc204e6180ef79708db409c65cf415345d1197e4aaba8970
 ```
 
 ```she
-docker ps
+$ docker ps
 CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                   NAMES
 5529f4dacc78   aspnetapp      "dotnet aspnetapp.dll"   14 seconds ago   Up 13 seconds   0.0.0.0:8080->80/tcp, :::8080->80/tcp   aspnetcore_sample2
 94e30cc96f84   mysql:latest   "docker-entrypoint.s…"   57 minutes ago   Up 57 minutes   3306/tcp, 33060/tcp                     mydb
