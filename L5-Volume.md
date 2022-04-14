@@ -82,6 +82,7 @@ $ pwd
 ```
 
 2. Bind folder instead of Volume
+```she
 $ docker run -d -p 8080:80 \
   --name ngnixvolume \
   --mount type=bind,source=/root/bindfolder,target=/usr/share/nginx/html \
