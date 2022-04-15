@@ -94,7 +94,7 @@ docker container run \
 --detach \
 --name wordpress-aws \
 -p 8081:80 \
--e WORDPRESS_DB_HOST=wordpress.ctfaxb6brnew.eu-west-1.rds.amazonaws.com:3306 \
+-e WORDPRESS_DB_HOST=_AWS_ENDPOINT_:3306 \
 -e WORDPRESS_DB_USER=admin \
 -e WORDPRESS_DB_PASSWORD=somewordpress \
 -e WORDPRESS_DB_NAME=student12 \
