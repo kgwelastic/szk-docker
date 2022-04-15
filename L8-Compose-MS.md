@@ -64,7 +64,7 @@ $ curl ifconfig.me
 ```
 11. Enter to the mysql container:
 ```she
-$ docker-compose exec db bin/bash
+$ docker-compose exec db /bin/bash
 ```
 ## Task 2: Cleanup enviroment
 
