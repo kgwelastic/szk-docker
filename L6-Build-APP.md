@@ -97,7 +97,7 @@ docker container run \
 -e WORDPRESS_DB_HOST=_AWS_ENDPOINT_:3306 \
 -e WORDPRESS_DB_USER=admin \
 -e WORDPRESS_DB_PASSWORD=somewordpress \
--e WORDPRESS_DB_NAME=student12 \
+-e WORDPRESS_DB_NAME=studentX \
 wordpress:latest
 ```
 
