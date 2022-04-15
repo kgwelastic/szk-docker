@@ -58,7 +58,7 @@ $ docker-compose logs -f app
 ```she
 $ docker-compose ps
 ```
-10. Browse to the wordpress portal: http://176.34.207.206:8080/
+10. Browse to the app portal: http://176.34.207.206:8080/
 ```she
 $ curl ifconfig.me
 ```
