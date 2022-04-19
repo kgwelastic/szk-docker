@@ -143,7 +143,7 @@ sudo cp /etc/krb5.conf /appdirectory
 
 5. On Linux Docker Host create launch.sh
 ``
-sudo vi /appdirecotry/launch.sh
+sudo vi /app/secrets/launch.sh
 ``
 
 ```
@@ -157,17 +157,27 @@ sudo vi /appdirectory/dockerfile
 ``
 ```
 FROM image
+WORKDIR /app
+#
+#
+# application_definition
+#
+#
+RUN mkdir /app/secrets
+ADD secrets /app/secrets
+ADD launch.sh .
+RUN chmod 777 /app/launch.sh
 
---mount type=bind,source=/keytablocation/,target=/keytablocation
---mount type=bind,source=/appdirectory/,target=/app
 
-application_definition
 
-apt update && apt dist-upgrade -y
-apt install -y krb5-config krb5-user
-cp /app/krb5.conf /etc/krb5.conf
+RUN apt update && apt dist-upgrade -y
+RUN apt install -y krb5-config krb5-user
+RUN cp /app/secrets/krb5.conf /etc/krb5.conf
 
-ENTRYPOINT /launch.sh
+
+
+
+ENTRYPOINT /app/launch.sh
 ```
 
 
